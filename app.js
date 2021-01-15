@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    console.log(extract(2,4));
-    
-    function extract(start,end) {
-        let extractedNumbers = new Array();
-        for (let i = start; i <= end; i++) {
-            extractedNumbers.push(numbers[i]);
-        }
-        return extractedNumbers;
+    const colors = ["red", "green", "blue"];
+
+    const checkColors = (color) =>{
+        return colors.findIndex(checkcolor => checkcolor === color);
     }
-      
-      
+    console.log(checkColors("blue"));
+    console.log(checkColors("test"));
+
 
 });
