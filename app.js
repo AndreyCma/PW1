@@ -1,23 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log(sumInput());
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    console.log(numbers);
+    numbers.splice(4,1,...[0,0,0]);
 
-    function sumInput() {
-
-        let numbers = [];
-      
-        while (true) {
-            let value = prompt("Введите число", 0);
-            if (value === "" || value === null || !isFinite(value)) break;  
-            numbers.push(+value);
-        }
-      
-        let sum = 0;
-        for (let number of numbers) {
-          sum += number;
-        }
-        return sum;
-      }
+    console.log(numbers);
       
       
 
