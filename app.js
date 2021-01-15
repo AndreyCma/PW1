@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    let arr = [1, "a", 2, null, 3, undefined, 4, {}, 5, 6, "word", 7, 8, false, 9, 100];
+    let numbers =  [8, 7,  2,  2,  3, 4, 2,  5, 5, 6, 7, 8, 5, 9, 0, 1];
+    console.log(uniqueSorted());
 
-    console.log(filter());
-    function filter() {
-        let result = new Array();
-        for (let i = 0; i < arr.length; i++){
-            if (arr[i] >=0 && arr[i] <=9 && typeof(arr[i]) == "number") result.push(arr[i]);
-        }
-        return result;
+    function uniqueSorted() {
+        let uniqueSet = new Set(numbers);
+        let uniqueArray = Array.from(uniqueSet);
+        let uniqueSortedArray = uniqueArray.sort();
+        return uniqueSortedArray;
+
+
     }
 
 
