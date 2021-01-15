@@ -1,16 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let styles = ["Джаз","Блюз"];
-    styles.push("Рок-н-ролл");
-    console.log(styles);
-    let len = styles.length;
-    center  = Math.ceil(len / 2) - 1;
-    styles[center] = "Классика";
-    console.log(styles);
-    console.log(styles[0]);
-    styles.shift();
-    console.log(styles);
-    styles.unshift("Рэп", "Регги");
-    console.log(styles);
 
+    console.log(sumInput());
+
+    function sumInput() {
+
+        let numbers = [];
+      
+        while (true) {
+            let value = prompt("Введите число", 0);
+            if (value === "" || value === null || !isFinite(value)) break;  
+            numbers.push(+value);
+        }
+      
+        let sum = 0;
+        for (let number of numbers) {
+          sum += number;
+        }
+        return sum;
+      }
+      
+      
 
 });
