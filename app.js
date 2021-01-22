@@ -1,18 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    let user = new Object();
-
-    user = {
-        name: "John",
-        surname: "Smith"
-    }
-    console.log(user);
-
-    user.name = "Pete";
-    console.log(user);
-
-    delete user["name"];
-    console.log(user);
+    document.body.style.backgroundColor = "red";
+    setTimeout(() => document.body.style.backgroundColor = "green", 3000);
+    document.getElementById("orange").onclick = function() {
+        document.body.style.backgroundColor = "orange";
+    };
 
 
 
