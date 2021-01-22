@@ -1,11 +1,32 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.body.style.backgroundColor = "red";
-    setTimeout(() => document.body.style.backgroundColor = "green", 3000);
-    document.getElementById("orange").onclick = function() {
-        document.body.style.backgroundColor = "orange";
-    };
+    let ol = document.getElementById("list");
 
+    function addLi(i) {
+        let li = document.createElement("li");
+        if (i % 2 == 0) {
+            li.setAttribute("id", "even");
+            li.style.background = "green";
+        } else {
+            li.setAttribute("id", "odd");
+            li.style.background = "purple";
+        }
+        li.appendChild(document.createTextNode("Элемент "+i));
+        ol.appendChild(li);
+
+    }
+    var callCount = 1;
+    var repeater = setInterval(function () {
+    if (callCount <= 20) {
+        addLi(callCount);
+        callCount += 1;
+    } else {
+        clearInterval(repeater);
+
+    }
+    }, 2000);
+
+    
 
 
 });
