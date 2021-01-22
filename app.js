@@ -1,21 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    document.getElementById("minus").onclick = function() {
-        let val = document.getElementById("numValue").value;
-        if (val > 0){
-            document.getElementById("numValue").value = val-1;
-        } else {
-            document.getElementById("minus").disabled = true;
+    function addTable() {
+        let DynamicTable = document.querySelector("#DynamicTable");
+      
+        let table = document.createElement('TABLE');
+        table.border = '1';
+      
+        let tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
+      
+        for (let i = 0; i < 8; i++) {
+          let tr = document.createElement('TR');
+          tableBody.appendChild(tr);
+      
+          for (let j = 0; j < 8; j++) {
+            let td = document.createElement('TD');
+            td.width = '75';
+            td.height= '75';
+            if ((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1)){
+                td.style.background = "black";
+            }
+            tr.appendChild(td);
+          }
         }
-    }
-    document.getElementById("plus").onclick = function() {
-        let val = document.getElementById("numValue").value;
-        if (val < 9){
-            document.getElementById("numValue").value = Number(val)+1;
-        } else {
-            document.getElementById("plus").disabled = true;
-        }
-    }
+        DynamicTable.appendChild(table);
+      }
+      addTable();
     
 
 
