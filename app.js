@@ -1,30 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  class Person {
+  class User {
     constructor(name,surname){
       this.name = name;
       this.surname = surname;
     }
 
-    get getName(){
-      return this.name;
+    get getFullName() {
+      return this.name +" " + this.surname;
     }
-    set setName(value){
-      this.name = value;
-    }
-    get getSurname(){
-      return this.surname;
-    }
-    set setSurname(value){
-      this.surname = value;
-    }
-
   }
 
-  const worker = new Person('Иван', 'Иванов');
-  console.log(worker.getName);
-  console.log(worker.getSurname);
-  console.log(worker.setSurname = 'Петров');
-  console.log(worker.getSurname);
+  class Student extends User {
+    constructor(name,surname,year){
+      super(name,surname);
+      this.year = year;
+    }
+
+    get getCourse() {
+      let currentTime = new Date();
+      let year = currentTime.getFullYear();
+      let course = year - this.year;
+      if (course > 0 && course < 6){
+        return course;
+      } else {
+        return "Error!"
+      }
+    }
+  }
+
+
+  const student = new Student('Иван', 'Иванов',2018);
+  console.log(student.name);
+  console.log(student.surname);
+  console.log(student.getFullName);
+  console.log(student.year);
+  console.log(student.getCourse);
 
 });
