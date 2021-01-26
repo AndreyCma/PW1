@@ -1,40 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  class User {
-    constructor(name,surname){
-      this.name = name;
-      this.surname = surname;
+  class Elem {
+    constructor(selector){
+      this.selector = selector;
     }
 
-    get getFullName() {
-      return this.name +" " + this.surname;
-    }
-  }
-
-  class Student extends User {
-    constructor(name,surname,year){
-      super(name,surname);
-      this.year = year;
+    html(content) {
+      document.querySelector(this.selector).innerHTML += content;
     }
 
-    get getCourse() {
-      let currentTime = new Date();
-      let year = currentTime.getFullYear();
-      let course = year - this.year;
-      if (course > 0 && course < 6){
-        return course;
-      } else {
-        return "Error!"
-      }
+    append(content) {
+      let existedContent = document.querySelector(this.selector).textContent;
+      document.querySelector(this.selector).innerHTML = existedContent + ' ' + content;
+    }
+    prepend(content) {
+      let existedContent = document.querySelector(this.selector).textContent;
+      document.querySelector(this.selector).innerHTML = content + ' ' + existedContent
+    }
+
+    attr(attr,value) {
+      document.querySelector(this.selector).setAttribute(attr,value);
     }
   }
 
+  let elem = new Elem('div');
+  elem.html("hello");
+  elem.append("content");
+  elem.prepend("begining");
+  elem.attr("class","www");
+  elem.attr("title","hello");
 
-  const student = new Student('Иван', 'Иванов',2018);
-  console.log(student.name);
-  console.log(student.surname);
-  console.log(student.getFullName);
-  console.log(student.year);
-  console.log(student.getCourse);
+
 
 });
